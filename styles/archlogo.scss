@@ -1,0 +1,12 @@
+@use "/home/ross/projects/bar/vars" as *;
+
+.archbutton {
+  background: $accent1;
+  color: $accent2;
+  border: none;
+  outline: none;
+  min-height: 30px;
+  min-width: 30px;
+  border-radius: 50px;
+  padding: 0;
+}

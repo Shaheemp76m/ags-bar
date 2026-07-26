@@ -1,0 +1,20 @@
+@use "/home/ross/projects/bar/vars" as *;
+
+.battery {
+  background: $accent1;
+  color: $accent2;
+  border: none;
+  outline: none;
+  min-height: 30px;
+  min-width: 30px;
+  border-radius: 50px;
+  padding: 0 10px;
+}
+
+.batteryper {
+  margin: 0 5px;
+}
+
+.chargingicon {
+  color: $accent2;
+}

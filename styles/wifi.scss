@@ -1,0 +1,23 @@
+@use "/home/ross/projects/bar/vars" as *;
+
+.wifi {
+  background: $accent1;
+  color: $accent2;
+  border: none;
+  outline: none;
+  min-height: 30px;
+  min-width: 30px;
+  border-bottom-right-radius: 17px;
+  padding: 0 10px;
+}
+
+.signal {
+  background: $accent1;
+  color: $accent2;
+  border: none;
+  outline: none;
+  min-height: 30px;
+  min-width: 30px;
+  border-radius: 50px 18px 18px 50px;
+  padding: 0;
+}

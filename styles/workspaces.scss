@@ -1,0 +1,36 @@
+@use "/home/ross/projects/bar/vars" as *;
+
+.workspaces {
+  background: $accent3;
+  color: $accent1;
+  border: none;
+  outline: none;
+  min-height: 30px;
+  min-width: 30px;
+  border-radius: 50px;
+  padding: 0 5px;
+}
+
+.workspace-buttons {
+  background: $accent2;
+  color: $accent1;
+  border: none;
+  outline: none;
+  min-height: 20px;
+  min-width: 20px;
+  border-radius: 50px;
+  padding: 0;
+  margin: 5px 0;
+}
+
+.workspace-active {
+  background: $accent1;
+  color: $accent2;
+  border: none;
+  outline: none;
+  min-height: 20px;
+  min-width: 20px;
+  border-radius: 50px;
+  padding: 0 10px;
+  margin: 5px 0;
+}

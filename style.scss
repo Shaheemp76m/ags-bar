@@ -1,0 +1,26 @@
+// https://gitlab.gnome.org/GNOME/gtk/-/blob/gtk-3-24/gtk/theme/Adwaita/_colors-public.scss
+@use "vars" as *;
+@use "./styles/launcher.scss";
+@use "./styles/battery.scss";
+@use "./styles/workspaces.scss";
+@use "./styles/wifi.scss";
+@use "./styles/clock.scss";
+@use "./styles/archlogo.scss";
+
+window {
+  background-color: rgba($accent2, 0.75);
+  color: $accent1;
+  font-family: "Rubik", "GeistMono Nerd Font";
+  border-radius: 0 0 17px 17px;
+  padding: 2px;
+}
+
+.widgets {
+  color: $accent1;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.title {
+  margin: 0 5px;
+}
