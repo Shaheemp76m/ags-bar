@@ -1,29 +1,30 @@
 import { Astal, Gdk, Gtk } from "ags/gtk4"
-import app from "ags/gtk4/app"
 import { createBinding } from "gnim";
 import launcherState from "../services/launcher-state";
 import Gio from "gi://Gio"
 
 export default function launcher() {
-  const { TOP, LEFT, RIGHT } = Astal.WindowAnchor;
+  const { TOP, LEFT } = Astal.WindowAnchor;
   const isOpen = createBinding(launcherState, "is-open")
-  const applist = Gio.AppInfo.get_all()
+  const applist = Gio.AppInfo.get_all().filter(app => app.should_show())
   const controller = new Gtk.EventControllerKey()
   controller.connect("key-pressed", (_, key) => {
-    if (key === Gdk.KEY_Escape)
+    if (key === Gdk.KEY_Escape) {
       launcherState.isOpen = false
+      return true
+    }
+    return false
   })
-  const appWidgets = applist.slice(0, 10).map(app => (
+  const appWidgets = applist.map(app => (
     <button
       onClicked={() => {
-      app.launch([], null)
-      launcherState.isOpen = false
-    }} 
+        app.launch([], null)
+        launcherState.isOpen = false
+      }}
       class={"appbutton"}
       vexpand={false}
       height_request={30}>
-      <box class={"application"} spacing={4}>
-        <image gicon={app.get_icon()} class={"appicon"} pixelSize={30}/>
+      <box class={"application"} spacing={3}>
         <label label={app.get_name()} class={"appname"} />
       </box>
     </button>
@@ -31,15 +32,23 @@ export default function launcher() {
   return (
     <window
       class={"appwindow"}
+      keymode={Astal.Keymode.EXCLUSIVE}
       anchor={TOP | LEFT}
       visible={isOpen}
-      setup={(win) => {
-          win.add_controller(controller)
-        }}
+      namespace="agsapplauncher"
     >
-      <box class={"applauncher"} orientation={Gtk.Orientation.VERTICAL} spacing={3}>
-        {appWidgets}
-      </box>
+      {controller}
+      <scrolledwindow
+        hscrollbarPolicy={Gtk.PolicyType.NEVER}
+        vscrollbarPolicy={Gtk.PolicyType.AUTOMATIC}
+        hasFrame={false}
+        vexpand
+        hexpand
+      >
+        <box class={"applauncher"} orientation={Gtk.Orientation.VERTICAL} spacing={3}>
+          {appWidgets}
+        </box>
+      </scrolledwindow>
     </window>
   )
 }

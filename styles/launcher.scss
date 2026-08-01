@@ -4,11 +4,11 @@
   margin-top: 5px;
   margin-left: 5px;
   border-radius: 18px;
+  min-height: 500px;
+  min-width: 350px;
 }
 
 .applauncher {
-  min-height: 500px;
-  min-width: 400px;
   margin: 10px;
 }
 
@@ -20,15 +20,24 @@
 }
 
 .application {
-  border-radius: 10px;
   padding: 0 8px;
   min-width: 400px;
-  min-height: 50px;
-  background-color: $accent2;
-  border: 2px solid $accent3;
+  min-height: 30px;
+  border: 0;
 }
 
 .appname {
   color: $accent1;
   font-size: 18px;
+}
+
+scrollbar {
+  opacity: 0;
+  min-height: 0;
+  min-width: 0;
+}
+
+scrollbar slider {
+  min-height: 0;
+  min-width: 0;
 }

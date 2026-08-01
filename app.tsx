@@ -23,6 +23,7 @@ app.start({
     return (
       <>
         <window
+          namespace="agsbar"
           exclusivity={Astal.Exclusivity.EXCLUSIVE}
           visible hexpand anchor={TOP | LEFT | RIGHT}
           layer={Astal.Layer.TOP}>
