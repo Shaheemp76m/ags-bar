@@ -23,23 +23,23 @@ app.start({
     return (
       <>
         <window
-          namespace="agsbar"
+          namespace={"agsbar"}
           exclusivity={Astal.Exclusivity.EXCLUSIVE}
           visible hexpand anchor={TOP | LEFT | RIGHT}
           layer={Astal.Layer.TOP}>
-          <box hexpand valign={Gtk.Align.CENTER}>
-            <box>
+          <centerbox hexpand>
+            <box $type="start">
               <Archlogo />
             </box>
-            <box hexpand spacing={4} halign={Gtk.Align.CENTER}>
+            <box spacing={4} $type="center">
               <Clock />
               <Workspaces />
               <Battery />
             </box>
-            <box halign={Gtk.Align.END}>
+            <box $type="end">
               <Wifi />
             </box>
-          </box>
+          </centerbox>
         </window>
         <Launcher />
       </>
